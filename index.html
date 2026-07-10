@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ονειροπέτρα · Μενού — Oniropetra Snack Bar</title>
+<title>Ονειρόπετρα · Μενού — Oniropetra Snack Bar</title>
 <meta name="description" content="Τιμοκατάλογος / Menu — Oniropetra Snack Bar, Mikro, Pelion">
 </head>
 <body>
@@ -183,19 +183,32 @@
   .chip {
     flex: 0 0 auto;
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     min-height: 44px;
-    padding: .3rem 1rem;
-    border-radius: 999px;
+    padding: .4rem 1.1rem;
+    border-radius: 18px;
     border: 1px solid var(--hairline);
     background: var(--chip-bg);
     color: var(--muted);
     font-size: .92rem;
     font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
     text-decoration: none;
     white-space: nowrap;
     cursor: pointer;
     transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  }
+  .chip-en {
+    display: block;
+    font-size: .58rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    opacity: .65;
+    margin-top: .1rem;
   }
   .chip:hover { border-color: var(--sea); color: var(--ink); }
   .chip.is-active {
@@ -286,7 +299,7 @@
 
 <header class="cove">
   <div class="cove-sun" aria-hidden="true"></div>
-  <h1 class="brand" lang="el">Ονειροπέτρα</h1>
+  <h1 class="brand" lang="el">Ονειρόπετρα</h1>
   <p class="brand-sub">Snack Bar · Mikro | Pelion</p>
   <svg class="cove-waves" viewBox="0 0 800 110" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0,58 C140,28 260,88 400,62 C540,36 660,80 800,50 L800,110 L0,110 Z" fill="var(--wave-1)" opacity="0.55"/>
@@ -297,16 +310,16 @@
 
 <nav class="rail" aria-label="Κατηγορίες μενού / Menu categories">
   <div class="rail-inner">
-    <a class="chip" href="#kafes">Καφές</a>
-    <a class="chip" href="#rofimata">Ροφήματα</a>
-    <a class="chip" href="#pota">Ποτά</a>
-    <a class="chip" href="#proino">Πρωινό</a>
-    <a class="chip" href="#snack">Σνακ</a>
-    <a class="chip" href="#pitses">Πίτσες</a>
-    <a class="chip" href="#salates">Σαλάτες</a>
-    <a class="chip" href="#merides">Μερίδες Φαγητού</a>
-    <a class="chip" href="#makaronades">Μακαρονάδες</a>
-    <a class="chip" href="#glyka">Γλυκά</a>
+    <a class="chip" href="#kafes">Καφές<span class="chip-en">Coffee</span></a>
+    <a class="chip" href="#rofimata">Ροφήματα<span class="chip-en">Refreshments</span></a>
+    <a class="chip" href="#pota">Ποτά<span class="chip-en">Alcoholic Beverages</span></a>
+    <a class="chip" href="#proino">Πρωινό<span class="chip-en">Breakfast</span></a>
+    <a class="chip" href="#snack">Σνακ<span class="chip-en">Bar Bites</span></a>
+    <a class="chip" href="#pitses">Πίτσες<span class="chip-en">Pizzas</span></a>
+    <a class="chip" href="#salates">Σαλάτες<span class="chip-en">Salads</span></a>
+    <a class="chip" href="#merides">Μερίδες Φαγητού<span class="chip-en">Main Dishes</span></a>
+    <a class="chip" href="#makaronades">Μακαρονάδες<span class="chip-en">Pasta</span></a>
+    <a class="chip" href="#glyka">Γλυκά<span class="chip-en">Dessert</span></a>
   </div>
 </nav>
 
@@ -545,7 +558,7 @@
 </main>
 
 <footer>
-  <p class="foot-brand" lang="el">Ονειροπέτρα</p>
+  <p class="foot-brand" lang="el">Ονειρόπετρα</p>
   <p class="foot-place">Oniropetra Snack Bar · Mikro | Pelion</p>
   <div class="legal">
     <p lang="el">Τηλ. Παραγγελιών: 6972182284</p>
