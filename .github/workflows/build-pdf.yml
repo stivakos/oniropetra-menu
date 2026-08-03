@@ -1,0 +1,57 @@
+name: Build print PDF
+
+# Whenever the menu content changes, re-render the print catalog PDF in the
+# cloud and commit it back — so edits made from a phone (GitHub app) also
+# regenerate the printable PDF without needing a computer.
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'index.html'
+      - 'print-source/**'
+      - '.github/workflows/build-pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-pdf
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install segno
+        run: pip install segno
+
+      - name: Install Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Render PDF
+        env:
+          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
+        run: python print-source/build_print.py
+
+      - name: Commit regenerated PDF
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add MENU_Mikro_Pelion_NEOS_KATALOGOS.pdf print-source/menu-print.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Auto-render print PDF [skip ci]"
+            git push
+          fi
