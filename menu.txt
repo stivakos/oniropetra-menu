@@ -11,6 +11,7 @@
 #   • Γραμμές που ξεκινούν με ένα # (σχόλια) αγνοούνται.
 
 ## Καφές | Coffee
+Τούρκικος | Turkish Coffee | 3,00 €
 Espresso Μονό | Espresso | 2,00 €
 Espresso Διπλό | Espresso Doppio | 3,00 €
 Cappuccino Μονό | Cappuccino | 3,00 €
