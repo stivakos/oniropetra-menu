@@ -1,0 +1,131 @@
+# ΜΕΝΟΥ ΟΝΕΙΡΟΠΕΤΡΑ — αρχείο-πηγή
+# Αυτό είναι το ΜΟΝΟ αρχείο που χρειάζεται να πειράζεις.
+# Από εδώ ενημερώνονται αυτόματα και το online μενού και το εκτυπώσιμο PDF.
+#
+# Κανόνες:
+#   • Κατηγορία:  ξεκίνα τη γραμμή με "## "  →   ## Ελληνικό όνομα | English name
+#   • Προϊόν:     μία γραμμή, πεδία χωρισμένα με  |  με αυτή τη σειρά:
+#                 Ελληνικό | English | Τιμή | Περιγραφή GR | Περιγραφή EN
+#   • Ό,τι πεδίο δεν χρειάζεσαι, άφησέ το ΚΕΝΟ ανάμεσα στα |  (π.χ. "Sol |  | 5,00 €")
+#   • Για διαγραφή προϊόντος: σβήσε τη γραμμή.  Για προσθήκη: γράψε νέα γραμμή.
+#   • Γραμμές που ξεκινούν με ένα # (σχόλια) αγνοούνται.
+
+## Καφές | Coffee
+Espresso Μονό | Espresso | 2,00 €
+Espresso Διπλό | Espresso Doppio | 3,00 €
+Cappuccino Μονό | Cappuccino | 3,00 €
+Cappuccino Διπλό | Cappuccino Doppio | 4,00 €
+Freddo Espresso |  | 3,00 €
+Freddo Cappuccino |  | 3,50 €
+Espresso Macchiato |  | 3,00 €
+Espresso Lungo |  | 2,50 €
+Americano Μονό | Americano | 3,00 €
+Americano Διπλό | Americano Doppio | 3,50 €
+Caffè Latte |  | 4,00 €
+Latte Macchiato |  | 4,00 €
+Ελληνικός Καφές Μονός | Greek Coffee | 2,00 €
+Ελληνικός Καφές Διπλός | Greek Coffee Double | 2,50 €
+Καφές Φίλτρου | Drip Coffee | 3,00 €
+Νες Καφέ Φραπέ | Nescafé Frappe | 3,00 €
+Νες Καφέ | Nescafé | 3,00 €
+
+## Ροφήματα | Refreshments
+Σοκολάτα Ζεστή | Hot Chocolate | 3,50 €
+Σοκολάτα Κρύα | Cold Chocolate | 3,50 €
+Σοκολάτα Βιενουά | Chocolate Viennois | 4,00 €
+Κακάο | Cocoa | 3,00 €
+Milkshake |  | 6,00 €
+Γρανίτα | Ice Pop | 4,00 €
+Τσάι Κρύο | Ice Tea | 4,00 €
+Χυμός | Juice | 3,00 €
+Φυσικός Χυμός Πορτοκάλι | Fresh Orange Juice | 4,00 €
+Αναψυκτικά | Soft Drinks | 2,50 €
+Νερό 0,5 Lt | Water 0.5 Lt | 0,50 €
+Νερό 1 Lt | Water 1 Lt | 1,00 €
+Red Bull |  | 5,00 €
+
+## Ποτά | Alcoholic Beverages
+Κρασί | Wine | 4,00 €
+Μπύρα Κουτί 0,33 Lt | Beer Can | 3,50 €
+Μπύρα Βαρέλι 0,4 Lt | Draft Beer | 5,00 €
+Sol |  | 5,00 €
+Ποτό Απλό | Drink | 7,00 €
+Ποτό Special | Special Drink | 8,50 €
+Aperol |  | 7,00 €
+Cocktail Απλό |  | 8,00 €
+Cocktail Special |  | 10,00 €
+Σαμπάνια Asti Martini 200ml | Champagne Asti Martini | 6,00 €
+
+## Πρωινό | Breakfast
+Μπολ Ενέργειας | Energy Bowl | 5,00 € | Γιαούρτι, βρώμη, γκρανόλα, φράουλα, ξηροί καρποί, μέλι | Yoghurt, oats, granola, strawberries, nuts, honey
+Χωριάτικη Χειροποίητη Πίτα | Greek Traditional Homemade Pie | 3,50 €
+Τοστ | Toast | 3,00 €
+Ομελέτα | Omelette | 7,50 € | 3 αυγά. Συνοδεύεται από σαλάτα mesclun & ψωμάκι | 3 eggs, served with mesclun salad & bread roll
+Ομελέτα Merci | Omelette Merci | 9,00 € | 3 αυγά με gouda, κοτόπουλο, μπέικον & πιπεριά. Με σαλάτα mesclun & ψωμάκι | 3 eggs with gouda, chicken, bacon & pepper. Served with mesclun salad & bread roll
+Ομελέτα Confusion | Omelette Confusion | 9,00 € | 3 αυγά με γαλοπούλα, φέτα & ντοματίνια. Με σαλάτα mesclun & ψωμάκι | 3 eggs with turkey, feta & cherry tomatoes. Served with mesclun salad & bread roll
+Αυγά Τηγανητά με Λουκάνικο Φρανκφούρτης | Fried Eggs with Frankfurter Sausage | 8,00 € | 2 αυγά με μπέικον, λουκάνικο Φρανκφούρτης, φρυγανισμένο ψωμί & ανάμεικτη σαλάτα | 2 eggs with bacon, Frankfurter sausage, toasted bread & mixed salad
+Αυγά Τηγανητά με Cheddar | Fried Eggs with Cheddar | 7,00 € | 3 αυγά σε φρυγανισμένο ψωμί με cheddar, ντομάτα, μπέικον & ανάμεικτη σαλάτα | 3 eggs on toasted bread with cheddar, tomato, bacon & mixed salad
+Pan Cake με Αυγό Τηγανητό | Pancake with Fried Egg | 8,50 € | Γαλοπούλα, μπέικον, τσένταρ, μαγιονέζα | Turkey, bacon, cheddar, mayo
+
+## Σνακ | Bar Bites
+Μπαγκέτα Λευκή | White Baguette | 5,00 € | Γαλοπούλα, καπνιστό κασέρι, μαρούλι, ντομάτα, αγγούρι φλοίδες, σως μουστάρδας | Turkey, smoked cheese, lettuce, tomato, cucumber flakes, mustard sauce
+Μπαγκέτα Ολικής Αλέσεως | Whole Wheat Baguette | 5,00 € | Λευκή κρέμα τυριού, πίκλα αγγούρι, κάπαρη, ντοματίνια, πέστο βασιλικού | White cream cheese, pickled cucumber, capers, cherry tomatoes, basil pesto
+Μπαγκέτα Scramble |  | 5,00 € | Με scrambled αυγά, φέτα, μπέικον, παρμεζάνα & σως κίτρινη | With scrambled eggs, feta, bacon, parmesan & yellow sauce
+Μπαγκέτα Λευκή με Μπριζολάκι | Pork Steak Baguette | 8,00 € | Σως μουστάρδας, πατάτες, τσένταρ, μπέικον | Mustard sauce, fries, cheddar, bacon
+Τορτίγια Caesars |  | 6,00 €
+Κοτομπουκιές | Chicken Bites | 7,00 €
+Hot Dog |  | 4,00 €
+Hot Dog Χωριάτικο | Hot Dog with Greek Sausage | 6,00 € | Χωριάτικο λουκάνικο, coleslaw | Greek traditional sausage, coleslaw
+
+## Burgers | Club Sandwiches
+Cheeseburger |  | 4,00 €
+Cheeseburger Special |  | 7,00 €
+Chickenburger |  | 7,50 €
+Χοιρινό Μπέργκερ | Pork Burger | 7,50 € | Χοιρινό πανέ, μπέικον | Breaded pork schnitzel, bacon
+Club Sandwich |  | 7,50 €
+Club Sandwich Chicken |  | 9,00 €
+Burger Oniropetra |  | 12,00 € | Καραμελωμένο κρεμμύδι, ντομάτα, BBQ sauce, μανιτάρια | Caramelized onion, tomato, BBQ sauce, mushrooms
+Burger Odi Sea |  | 18,00 € | Argentinian ribeye, καραμελωμένο κρεμμύδι, ντομάτα, παρμεζάνα | Argentinian ribeye, caramelized onion, tomato, parmesan
+
+## Πίτσες | Pizzas
+Πίτσα Μαργαρίτα | Pizza Margarita | 7,00 €
+Πίτσα Special | Pizza Special | 10,00 €
+Πίτσα Πεπερόνι | Pizza Pepperoni | 10,00 €
+Πίτσα Μεσογειακή | Pizza Mediterranean | 8,50 €
+
+## Σαλάτες | Salads
+Σαλάτα Caesars |  | 7,00 € | Ανάμεικτη πράσινη σαλάτα, μπέικον, κοτόπουλο σε λωρίδες, κρουτόν, παρμεζάνα, σως καίσαρα | Mixed green salad, bacon, chicken strips, croutons, parmesan, Caesar’s sauce
+Μακαρονοσαλάτα | Pasta Salad | 5,00 € | Μακαρόνια βίδες, καρότο, πιπεριά, καλαμπόκι, ντοματίνια, σως κοκτέιλ | Fusilli pasta, carrot, pepper, corn, cherry tomatoes, cocktail sauce
+Φρουτοσαλάτα Ατομική | Fruit Salad (Individual) | 4,00 €
+Salad Ονειρόπετρα | Oniropetra Salad | 7,50 € |  | Cherry Tomato, Carob Rusk, Basil Pesto, Molasses, Cream Cheese, Capers
+
+## Μερίδες Φαγητού | Main Dishes
+Σνίτσελ Κοτόπουλο | Chicken Schnitzel | 8,00 €
+Μπιφτέκι | Beef Patty | 8,00 €
+Λουκάνικο Χωριάτικο | Greek Traditional Sausage | 9,00 €
+Μπριζολάκια | Pork Chops | 11,00 €
+Ποικιλία Λουκάνικων | Assorted Sausages | 14,00 €
+Argentine Ribeye |  | 32,00 €
+Πατάτες Country | Country Potatoes | 5,00 €
+Γλυκοπατάτες | Sweet Potatoes | 6,00 €
+
+## Μακαρονάδες | Pasta
+Bolognese |  | 9,00 €
+Pesto |  | 8,00 €
+Carbonara |  | 9,00 €
+Πέννες a la crème with chicken |  | 10,00 €
+Skiofichta |  | 12,00 € | Λουκάνικο, φέτα, πιπεριά | Sausage, feta cheese, pepper
+
+## Γλυκά | Dessert
+Λουκουμάς | Loukoumas | 2,50 €
+Pancakes |  | 6,00 € | Λευκή πραλίνα, Μερέντα, χειροποίητη μαρμελάδα κόκκινων φρούτων, Oreo | White praline, Merenda, handmade red fruit jam, Oreo
+Pancake Μερέντα | Pancake Merenda | 5,00 €
+Προφιτερόλ | Profiterole | 4,00 €
+Pancake Merenda - Biscuit |  | 6,00 €
+Pancake Honey |  | 5,00 €
+Pancake Sfendamo |  | 5,00 €
+Pancake with Feta and Honey |  | 7,00 €
+Crepe Sweet |  | 5,00 €
+Waffles |  | 6,00 €
+Pan Cake με Πραλίνα Λευκή | Pancake with White Praline | 7,50 € | Λευκή πραλίνα, έξτρα μπανάνα, μπισκότα — λευκή σοκολάτα ή τριμμένο λευκό μπισκότο | White praline, extra banana, biscuits — white chocolate or grated white biscuit
+Ice Cream Scoop |  | 2,50 €

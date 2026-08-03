@@ -1,54 +1,52 @@
-# Εκτυπώσιμος κατάλογος — πηγαίος κώδικας
+# Μενού Ονειρόπετρα — πηγαίος κώδικας
 
-Εδώ ζει το **πηγαίο** του εκτυπώσιμου καταλόγου (το A4 PDF). Πριν, το πηγαίο είχε χαθεί
-και υπήρχε μόνο το τελικό PDF· τώρα φυλάσσεται εδώ ώστε να μπορεί να ξαναφτιαχτεί/επεξεργαστεί.
+## ⭐ Το μόνο αρχείο που πειράζεις: `menu.txt` (στη ρίζα του repo)
 
-## Αρχεία
-- **`menu-print.html`** — Το πλήρες, αυτοτελές HTML του καταλόγου (γραμματοσειρές, λογότυπο και QR
-  ενσωματωμένα ως data URIs). Αυτό είναι που γίνεται render σε PDF. Μπορείς να το ανοίξεις και σε browser.
-- **`build_print.py`** — Script που παράγει το `menu-print.html` (περιεχόμενο ως δομημένα δεδομένα)
-  και μετά το κάνει render σε PDF μέσω headless Chrome.
-- **`assets/logo_round.png`** — Το στρογγυλό λογότυπο για το footer.
+Όλα τα προϊόντα και οι τιμές ζουν στο **`menu.txt`**. Είναι απλό κείμενο:
 
-## Πώς αλλάζω τιμή / προσθέτω προϊόν
+```
+## Καφές | Coffee
+Espresso Μονό | Espresso | 2,00 €
+Freddo Espresso |  | 3,00 €
+Ομελέτα | Omelette | 7,50 € | 3 αυγά, σαλάτα | 3 eggs, salad
+```
 
-Δύο τρόποι:
+- **Κατηγορία:** γραμμή που ξεκινά με `## ` → `## Ελληνικό | English`
+- **Προϊόν:** μία γραμμή, πεδία με `|` → `Ελληνικό | English | Τιμή | Περιγραφή GR | Περιγραφή EN`
+- Πεδίο που δεν χρειάζεσαι → άφησέ το **κενό** ανάμεσα στα `|`
+- **Διαγραφή:** σβήσε τη γραμμή. **Προσθήκη:** γράψε νέα γραμμή. **Αλλαγή τιμής:** άλλαξε τον αριθμό.
 
-**Α) Γρήγορα, με το χέρι** — άνοιξε το `menu-print.html`, βρες το προϊόν, άλλαξε τιμή/κείμενο,
-και ξανακάνε render (εντολή πιο κάτω).
-
-**Β) Καθαρά, με το script** — επεξεργάσου το `build_print.py` (το περιεχόμενο είναι λίστες `item(...)`
-ανά ενότητα) και τρέξε το· ξαναγράφει το HTML και το PDF μαζί.
+Από το `menu.txt` παράγονται **αυτόματα** και το online μενού (`index.html`) και το εκτυπώσιμο PDF.
 
 ## Αλλαγές από το κινητό (χωρίς υπολογιστή)
 
-Αυτό το repo έχει GitHub Action (`.github/workflows/build-pdf.yml`) που **ξαναφτιάχνει
-μόνο του το PDF στο cloud** κάθε φορά που αλλάζει το μενού. Ροή από κινητό:
+1. Άνοιξε το repo από την εφαρμογή **GitHub** (ή github.com) → άνοιξε το **`menu.txt`**.
+2. Πάτα το μολύβι ✏️, κάνε την αλλαγή, **Commit**.
+3. Το GitHub Action ξαναχτίζει μόνο του site + PDF. Σε ~1' το online ενημερώνεται· το νέο PDF βρίσκεται στη ρίζα του repo.
 
-1. Άνοιξε το repo από την εφαρμογή **GitHub** (ή github.com).
-2. Άλλαξε το `index.html` (online μενού) ή/και το `print-source/build_print.py` (τιμές/προϊόντα).
-3. Κάνε **commit** στο `master`.
-4. Το online μενού ενημερώνεται μέσω GitHub Pages (~1'). Το Action τρέχει, φτιάχνει ξανά το
-   `MENU_Mikro_Pelion_NEOS_KATALOGOS.pdf` και το κάνει commit πίσω στο repo — κατέβασέ το από εκεί για εκτύπωση.
+## Πώς δουλεύει (τα scripts)
 
-> Το ενημερωμένο PDF βρίσκεται πάντα στη ρίζα του repo. Ο υπολογιστής δεν χρειάζεται πια για το render.
+- **`menu.txt`** → η πηγή αλήθειας.
+- **`print-source/menu_data.py`** → διαβάζει το `menu.txt`.
+- **`print-source/build_web.py`** → ξαναγράφει τα προϊόντα + τα chips πλοήγησης **μέσα** στο `index.html`
+  (μόνο ανάμεσα στα markers `<!-- MENU:START/END -->` και `<!-- MENU:RAIL:START/END -->` — τίποτα άλλο δεν πειράζεται).
+- **`print-source/build_print.py`** → φτιάχνει το `menu-print.html` και το κάνει render σε PDF μέσω headless Chrome.
+- **`.github/workflows/build-pdf.yml`** → τρέχει τα δύο παραπάνω στο cloud σε κάθε αλλαγή του `menu.txt`.
 
-## Render σε PDF (headless Chrome)
+## Τοπικό build (από Mac, προαιρετικό)
+
+Μέσα στον φάκελο του repo:
 
 ```
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-  --headless --disable-gpu --no-pdf-header-footer \
-  --print-to-pdf="../MENU_Mikro_Pelion_NEOS_KATALOGOS.pdf" \
-  "menu-print.html"
+python3 -m venv venv && ./venv/bin/pip install segno
+./venv/bin/python print-source/build_web.py     # ενημερώνει το index.html
+./venv/bin/python print-source/build_print.py   # ενημερώνει το PDF
 ```
 
 ## Σημειώσεις
-- Το layout είναι σφιχτά ρυθμισμένο για να χωράει σε 3 σελίδες A4. Αν προσθέσεις πολλά νέα προϊόντα,
-  ίσως χρειαστεί μικρο-ρύθμιση στα μεγέθη/κενά (τιμές στο `CSS` του `build_print.py`).
-- Χωρίς παύλες/leaders — όπως ζητήθηκε.
+
+- Το layout του PDF είναι σφιχτά ρυθμισμένο για 3 σελίδες A4. Αν προσθέσεις πολλά προϊόντα, ίσως χρειαστεί
+  μικρο-ρύθμιση στα μεγέθη/κενά (στο `CSS` του `build_print.py`).
+- Χωρίς παύλες/leaders στο PDF — όπως ζητήθηκε.
 - Το footer QR δείχνει στο ζωντανό online μενού: https://stivakos.github.io/oniropetra-menu/
-- Το `build_print.py` διαβάζει τις γραμματοσειρές GFS Didot από `/Users/stavros/oniropetra-menu/index.html`.
-  Το `menu-print.html` όμως τις έχει ήδη μέσα του, οπότε για απλό render δεν χρειάζεται τίποτα άλλο.
-- Το `build_print.py` χρειάζεται το πακέτο **segno** (για το QR). Αν λείπει:
-  `python3 -m venv venv && ./venv/bin/pip install segno && ./venv/bin/python build_print.py`.
-  Το λογότυπο του footer διαβάζεται από `assets/logo_round.png` (μέσα στον ίδιο φάκελο).
+- Το `build_print.py` διαβάζει τις γραμματοσειρές GFS Didot από το `index.html`, και το λογότυπο από `assets/logo_round.png`.

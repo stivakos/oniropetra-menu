@@ -1,14 +1,15 @@
-name: Build print PDF
+name: Build menu (site + PDF)
 
-# Whenever the menu content changes, re-render the print catalog PDF in the
-# cloud and commit it back — so edits made from a phone (GitHub app) also
-# regenerate the printable PDF without needing a computer.
+# menu.txt is the single source of truth. Whenever it changes, rebuild BOTH
+# the online menu (index.html) and the print catalog PDF in the cloud, and
+# commit them back — so edits made from a phone (GitHub app) regenerate
+# everything without needing a computer.
 
 on:
   push:
     branches: [master]
     paths:
-      - 'index.html'
+      - 'menu.txt'
       - 'print-source/**'
       - '.github/workflows/build-pdf.yml'
   workflow_dispatch:
@@ -17,7 +18,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: build-pdf
+  group: build-menu
   cancel-in-progress: true
 
 jobs:
@@ -39,19 +40,22 @@ jobs:
         with:
           chrome-version: stable
 
-      - name: Render PDF
+      - name: Rebuild online menu (index.html)
+        run: python print-source/build_web.py
+
+      - name: Rebuild print catalog (PDF)
         env:
           CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
         run: python print-source/build_print.py
 
-      - name: Commit regenerated PDF
+      - name: Commit regenerated files
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add MENU_Mikro_Pelion_NEOS_KATALOGOS.pdf print-source/menu-print.html
+          git add index.html MENU_Mikro_Pelion_NEOS_KATALOGOS.pdf print-source/menu-print.html
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Auto-render print PDF [skip ci]"
+            git commit -m "Auto-rebuild site + PDF from menu.txt [skip ci]"
             git push
           fi
