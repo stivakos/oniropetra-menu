@@ -100,6 +100,7 @@ Burger Odi Sea |  | 18,00 € | Argentinian ribeye, καραμελωμένο κ�
 Salad Ονειρόπετρα | Oniropetra Salad | 7,50 € |  | Cherry Tomato, Carob Rusk, Basil Pesto, Molasses, Cream Cheese, Capers
 
 ## Μερίδες Φαγητού | Main Dishes
+Ποικιλία Κρεατικών για 2 άτομα | Meat platter for 2 people | 25,00 €
 Σνίτσελ Κοτόπουλο | Chicken Schnitzel | 8,00 €
 Μπιφτέκι | Beef Patty | 8,00 €
 Λουκάνικο Χωριάτικο | Greek Traditional Sausage | 9,00 €
